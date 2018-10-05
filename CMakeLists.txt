@@ -9,6 +9,12 @@ set (HEADERS pystring.h )
 set (SOURCES pystring.cpp )
 set (TEST_SOURCE test.cpp )
 
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+file( COPY ${CMAKE_CURRENT_SOURCE_DIR}/pystring.h
+        DESTINATION ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pystring.h )
+file( COPY ${CMAKE_CURRENT_SOURCE_DIR}/pystring.cpp
+        DESTINATION ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pystring.cpp )
+
 add_executable (${PROJECT_NAME}-test ${TEST_SOURCE} ${SOURCES} ${HEADERS})
 
 # Run tests before building the library
